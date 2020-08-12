@@ -18,10 +18,13 @@
   "dependencies": {
     "apollo-server": "^2.16.1",
     "graphql": "^15.3.0",
-    "nodemon": "^2.0.4"
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.3.4"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Eric Hodges",
