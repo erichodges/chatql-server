@@ -14,7 +14,6 @@ module.exports = {
     },
   },
   Mutation: {
-    // TODO add confirmPassword
     register: async (_, args) => {
       let { username, email, password, confirmPassword } = args;
       const errors = {};
@@ -58,7 +57,7 @@ module.exports = {
         return user;
       } catch (err) {
         console.log(err);
-        if (err.name === 'SequelizeUniqueConstriantError') {
+        if (err.name === 'SequelizeUniqueConstraintError') {
           err.errors.forEach(
             (e) => (errors[e.path] = `${e.path} is already taken`)
           );
