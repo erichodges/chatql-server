@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const { UserInputError, AuthenticationError } = require('apollo-server');
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
+const { JWT_SECRET } = require('../config/env.json');
 
 module.exports = {
   Query: {
@@ -44,7 +45,7 @@ module.exports = {
           {
             username,
           },
-          process.env.JWT_SECRET,
+          JWT_SECRET,
           { expiresIn: '1h' }
         );
 
