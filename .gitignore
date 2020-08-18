@@ -1,5 +1,6 @@
 node_modules
-config*
-config/config.json
+config
+./config/
+config.json
 env.json
 env*
