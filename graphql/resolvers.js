@@ -54,7 +54,7 @@ module.exports = {
 
         if (!correctPassword) {
           errors.password = 'password is incorrect';
-          throw new AuthenticationError('password is incorrect', { errors });
+          throw new UserInputError('password is incorrect', { errors });
         }
 
         const token = jwt.sign(
@@ -94,13 +94,6 @@ module.exports = {
 
         if (password !== confirmPassword)
           errors.confirmPassword = 'passwords must match exactly';
-
-        // Check if username / email exist
-        // const userByUsername = await User.findOne({ where: { username } });
-        // const userByEmail = await User.findOne({ where: { email } });
-
-        // if (userByUsername) errors.username = 'Username is taken';
-        // if (userByEmail) errors.email = 'Email is taken';
 
         if (Object.keys(errors).length > 0) {
           throw errors;
